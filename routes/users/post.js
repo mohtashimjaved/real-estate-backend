@@ -1,5 +1,7 @@
 import User from "../../model/index.js";
 import bcrypt from "bcrypt"
+import jwt from "jsonwebtoken"
+import "dotenv/config"
 
 const createUser = async (req, res) => {
     try {
@@ -10,7 +12,8 @@ const createUser = async (req, res) => {
         })
         const data = user.toObject();
         delete data.password
-        res.send({ status: 200, message: "User created successfully"});
+        const token = jwt.sign({email: user.email}, process.env.JWT_SECRET)
+        res.send({ status: 200, message: "User created successfully", user: data, token});
 
     } catch (err) {
         res.status(500).send({ error: err });
