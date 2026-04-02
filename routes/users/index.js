@@ -13,6 +13,4 @@ userRouter.post("/login", loginUser);
 userRouter.post("/refresh", refresh);
 userRouter.post("/token-verify", tokenVerification, accessVerification)
 
-
-
 export default userRouter;
