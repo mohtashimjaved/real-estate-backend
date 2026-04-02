@@ -3,7 +3,7 @@ import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 import "dotenv/config"
 
-const createUser = async (req, res) => {
+const signupUser = async (req, res) => {
     try {
         const password = bcrypt.hashSync(req.body.password, 10);
         const user = await User.create({
@@ -19,4 +19,4 @@ const createUser = async (req, res) => {
         res.status(500).send({ error: err });
     }
 }
-export default createUser;
+export default signupUser;

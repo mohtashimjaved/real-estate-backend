@@ -1,6 +1,6 @@
 import express from "express"
 import getUser from "./get.js";
-import createUser from "./post.js";
+import createUser from "./signup.js";
 import loginUser from "./login.js";
 import tokenVerification from "../../config/tokenVerification.js";
 import refresh from "./refresh.js";
